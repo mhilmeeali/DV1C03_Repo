@@ -47,7 +47,7 @@ pipeline {
                   parameters: [
 			  booleanParam(name:'proceed', defaultValue:false, description:'')
             ]
-        }
+        )
 
                                  if (userInput.proceed) {
                                    echo "Work Released- 22051090"
