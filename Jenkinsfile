@@ -42,16 +42,16 @@ pipeline {
         stage('Code Build') {
             steps {
               script {
-                def userInput=input(
+                def userInput = input(
                   message: 'Do you want to release the work?',
                   parameters: [
-                    booleanParam(name:'proceed', defaultValue:false, description:")
-            }
+			  booleanParam(name:'proceed', defaultValue:false, description:'')
+            ]
         }
 
-                                 if(userInput.proceed){
+                                 if (userInput.proceed) {
                                    echo "Work Released- 22051090"
-                                 }else {
+                                 } else {
                                    error("Aborted by user")
             }
         }
