@@ -33,20 +33,20 @@ pipeline {
     }
 				stage('Stage 5_22051090'){
 					steps{
-              script {
-                def userInput = input(
-                  message: 'Do you want to release the work?',
-                  parameters: [
-			  booleanParam(name:'proceed', defaultValue:false, description:'')
-            ]
-        )
-
-                                 if (userInput.proceed) {
-                                   echo "Work Released- 22051090"
-                                 } else {
-                                   error("Aborted by user")
-            }
-        }
-
-    }   
-}
+					  input'Do you you want to release the work?'
+					}
+				}
+	    stage('stage6_22051090') {
+		    steps {
+			    script {
+				    def userInput = input message: 'Proceed with release?', parameters: {booleanParam(defaultValue: true, description: '', name: 'Proceed')]
+													 if (userInput) {
+														 sh 'echo "Work Released - 22051090"'
+													 } else {
+														 error('Release aborted')
+													 }
+													}
+			    }
+		    }
+	    }
+    }
