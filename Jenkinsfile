@@ -39,7 +39,7 @@ pipeline {
 	    stage('stage6_22051090') {
 		    steps {
 			    script {
-				    def userInput = input message: 'Proceed with release?', parameters: {booleanParam(defaultValue: true, description: '', name: 'Proceed')]
+				    def userInput = input message: 'Proceed with release?', parameters: {booleanParam(defaultValue: true, description: '', name: 'Proceed')}
 													 if (userInput) {
 														 sh 'echo "Work Released - 22051090"'
 													 } else {
