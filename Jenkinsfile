@@ -33,14 +33,6 @@ pipeline {
     }
 				stage('Stage 5_22051090'){
 					steps{
-						sh "echo ${APP_ENV}"
-					}
-				}
-			}
-		}
-		
-        stage('Code Build') {
-            steps {
               script {
                 def userInput = input(
                   message: 'Do you want to release the work?',
