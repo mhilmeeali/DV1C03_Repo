@@ -31,22 +31,22 @@ pipeline {
 				}
       }
     }
-				stage('Stage 5_22051090'){
-					steps{
-					  input'Do you you want to release the work?'
-					}
+				    stage('S5_22051090') {
+            steps {
+				input("Do you want to release the work?")
+            }
+        }
+
+                           stage('S6_22051090') {
+                              when{
+				not{
+					branch 'master'
 				}
-	    stage('stage6_22051090') {
-		    steps {
-			    script {
-				    def userInput = input message: 'Proceed with release?', parameters: {booleanParam(defaultValue: true, description: '', name: 'Proceed')}
-													 if (userInput) {
-														 echo "Work Released - 22051090"
-													 } else {
-														 error('Release aborted')
-													 }
-													}
-			    }
-		    }
-	    }
-    }
+			}
+			steps {
+                echo "Work Released - 22051090"
+            }
+        }
+
+    }   
+}
